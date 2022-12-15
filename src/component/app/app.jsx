@@ -6,13 +6,9 @@ import BookService from "../../services/book-service";
 import store from "../../store";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import StoreHeader from "../store-header";
-import BookListItem from "../book-list-item/book-list-item";
-import StoreCartTable from "../store-cart-table";
-
-
+import {CartPage, HomePage} from "../pages"
 
 const service = new BookService()
-
 
 const App = () => {
     return (
@@ -22,8 +18,8 @@ const App = () => {
                 <BrowserRouter>
                    <StoreHeader/>
                     <Switch>
-                        <Route path='test' exact component={BookListItem}/>
-                        <Route path='/cart'component={StoreCartTable}/>
+                        <Route path='/' exact component={HomePage}/>
+                        <Route path='/cart' component={CartPage}/>
                     </Switch>
                 </BrowserRouter>
              </BooksServiceProvider>

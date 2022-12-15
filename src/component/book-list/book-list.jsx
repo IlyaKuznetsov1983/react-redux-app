@@ -1,18 +1,19 @@
 import React from 'react';
 import BookListItem from "../book-list-item";
+import withBookService from "../hoc";
+import './book-list.css'
 
-const BookList = () => {
+
+const BookList = (props) => {
+    console.log(props)
     return (
         <ul className='book-list'>
-            {
-                {[].map(book => {
-                        return (<li>
-                            <BookListItem/>
-                        </li>)
-                    }
-
+            {props.service.getBooks().map(book => <li>
+                <BookListItem {...book}/>
+            </li>)
+            }
         </ul>
     );
 };
 
-export default BookList;
+export default withBookService()(BookList);
